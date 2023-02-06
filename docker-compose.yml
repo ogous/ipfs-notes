@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  ipfs:
+    image: ipfs/go-ipfs:latest
+    environment:
+      IPFS_SWARM_KEY: "/key/swarm/psk/1.0.0/\n/base16/\n${IPFS_SWARM_KEY}"
+    ports:
+      - "4001:4001"
+      - "5001:5001"
+      - "8089:8080"
+    volumes:
+      - ./local-data/ipfs:/data/ipfs
